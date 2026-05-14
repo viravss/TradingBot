@@ -1,11 +1,16 @@
+using TradingBot.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
+var configuration = builder.Configuration;
 // Add services to the container.
 
 builder.Services.AddControllers();
 
-var app = builder.Build();
 
+builder.Services.AddInfrastructure(configuration);
+
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
