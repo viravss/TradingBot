@@ -1,32 +1,28 @@
 ﻿namespace TradingBot.Domain.Entities
 {
-    public class Candle
+    public class Candle : BaseEntity
     {
-        public long Id { get; private set; }
+        public int SymbolId { get; set; }
+        public Symbol? Symbol { get; set; }
 
-        public string Symbol { get; private set; } // BTCUSDT
+        public int TimeframeId { get; set; }
+        public Timeframe? Timeframe { get; set; }
 
-        public DateTime OpenTime { get; private set; }
+        public DateTime OpenTime { get; set; }
+        public DateTime CloseTime { get; set; }
 
-        public decimal Open { get; private set; }
-        public decimal High { get; private set; }
-        public decimal Low { get; private set; }
-        public decimal Close { get; private set; }
+        public bool IsClosed { get; set; }
 
-        public decimal Volume { get; private set; }
-        private Candle() { } // EF
+        public decimal Open { get; set; }
+        public decimal High { get; set; }
+        public decimal Low { get; set; }
+        public decimal Close { get; set; }
 
-        public Candle(string symbol, DateTime openTime,
-            decimal open, decimal high, decimal low, decimal close, decimal volume)
-        {
-            Symbol = symbol;
-            OpenTime = openTime;
-            Open = open;
-            High = high;
-            Low = low;
-            Close = close;
-            Volume = volume;
-        }
+        public decimal Volume { get; set; }
+
+        public int NumberOfTrades { get; set; }
+        public decimal QuoteAssetVolume { get; set; }
+
     }
 }
 
